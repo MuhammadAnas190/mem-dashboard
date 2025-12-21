@@ -1,0 +1,19 @@
+{
+  "name": "mem-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vercel dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@vercel/node": "^5.5.16"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
