@@ -1,8 +1,8 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node"
-import { generateAlarms } from "../../lib/alarmGenerator"
+import { Request, Response } from 'express'
+import { generateAlarms } from "../../lib/alarmGenerator.js"
 import type { AlarmResponse } from "../../types/alarm"
 
-export default function handler(req: VercelRequest, res: VercelResponse) {
+export default function handler(req: Request, res: Response) {
   const all = generateAlarms(200)
 
   const qRaw = req.query.search || req.query.q

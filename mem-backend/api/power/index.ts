@@ -1,9 +1,9 @@
-import type { VercelRequest, VercelResponse } from "@vercel/node"
-import { generatePowerPoints } from "../../lib/powerGenerator"
+import { Request, Response } from 'express'
+import { generatePowerPoints } from "../../lib/powerGenerator.js"
 
 export default function handler(
-  _req: VercelRequest,
-  res: VercelResponse
+  _req: Request,
+  res: Response
 ) {
   const points = generatePowerPoints(60)
 
