@@ -2,19 +2,6 @@
 
 A comprehensive web application for monitoring and managing energy systems, alarms, and maintenance across multiple sites. Built with modern React and Node.js technologies.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [Installation & Setup](#installation--setup)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
-- [State Management](#state-management)
-- [Contributing](#contributing)
-- [License](#license)
-
 ## 🎯 Overview
 
 The MEM Dashboard is a full-stack application designed for energy management facilities. It provides real-time monitoring of power systems, alarm management, site-specific analytics, and maintenance ticket tracking.
