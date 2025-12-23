@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Table, Input, Button, Space, Tag, Switch, Tooltip } from 'antd';
 import { StarOutlined, StarFilled } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import type { RootState } from '../../store/store';
 import { addFavorite, removeFavorite, setAlarmsData, setError, setFilteredAlarms, setLoading } from '../../store/slices/alarmSlice';
+import { setSite } from '../../store/slices/siteSlice';
 import { alarmApi } from '../../api';
 import type { AlarmEvent } from '../../api/alarms';
 import { useDebounce } from '../../hooks/useDebounce';
@@ -85,6 +87,14 @@ const AlarmsPage = () => {
     }
   };
 
+  const setDetails = (data: AlarmEvent) => {
+    dispatch(setSite({
+      currentOperatingMode: 'Grid Following',
+      location: data.siteName,
+      name: data.code,
+    }));
+  }
+
   const columns = [
     {
       title: 'Favorite',
@@ -105,6 +115,15 @@ const AlarmsPage = () => {
       dataIndex: 'code',
       key: 'code',
       sorter: (a: AlarmEvent, b: AlarmEvent) => a.code.localeCompare(b.code),
+      render: (code: string, record: AlarmEvent) => (
+        <Link
+          to={`/site/${code}`}
+          onClick={() => setDetails(record)}
+          style={{ color: '#1890ff', textDecoration: 'none' }}
+        >
+          {code}
+        </Link>
+      ),
     },
     {
       title: 'Severity',

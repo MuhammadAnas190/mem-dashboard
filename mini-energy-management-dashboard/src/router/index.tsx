@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import { App } from '../App';
 import LivePage from '../pages/live';
 import AlarmsPage from '../pages/alarms';
-// import AlarmDetailsPage from '../pages/alarms/details';
+import AlarmDetailsPage from '../pages/alarms/details';
 
 export const router = createBrowserRouter([
   {
@@ -17,10 +17,14 @@ export const router = createBrowserRouter([
         path: 'alarms',
         element: <AlarmsPage />,
       },
-      // {
-      //   path: 'site/:id',
-      //   element: <AlarmDetailsPage />,
-      // },
+      {
+        path: 'site/:id',
+        element: <AlarmDetailsPage />,
+      },
     ],
+  },
+  {
+    path: '*',
+    element: <App />,
   },
 ]);
