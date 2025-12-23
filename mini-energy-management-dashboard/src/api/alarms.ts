@@ -1,10 +1,21 @@
 import apiClient from './client';
 
-interface Alarm {
+export type Severity = "critical" | "major" | "minor" | "warning" | "info";
+
+export interface AlarmEvent {
   id: string;
-  message: string;
-  severity: 'low' | 'medium' | 'high';
-  timestamp: number;
+  code: string;
+  severity: Severity;
+  siteName: string;
+  description: string;
+  startTime: number;
+  endTime?: number;
+  tags: string[];
+}
+
+export interface AlarmResponse {
+  count: number;
+  events: AlarmEvent[];
 }
 
 // Alarm API endpoints
@@ -12,8 +23,10 @@ export const alarmApi = {
   /**
    * Fetch all alarms
    */
-  getAllAlarms: async (): Promise<Alarm[]> => {
-    const response = await apiClient.get('/alarms');
+  getAllAlarms: async (search?: string): Promise<AlarmResponse> => {
+    const response = await apiClient.get('/alarms', {
+        params: { search },
+    });
     return response.data;
   },
 };

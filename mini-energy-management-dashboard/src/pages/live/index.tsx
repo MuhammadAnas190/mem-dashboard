@@ -4,7 +4,7 @@ import { Button, Space } from 'antd';
 import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
 import { PowerWaveformChart } from '../../component/PowerWaveformChart';
 import { usePolling } from '../../hooks/usePolling';
-import { powerApi } from '../../api/power';
+import { powerApi } from '../../api';
 import {
   addChartData,
   setCurrentPower,
@@ -19,7 +19,7 @@ const DATA_POINTS = 20;
 
 const LivePage = () => {
   const dispatch = useDispatch();
-  const { chartData, currentPower, loading } = useSelector(
+  const { chartData, currentPower, loading, error } = useSelector(
     (state: RootState) => state.power
   );
 
