@@ -3,6 +3,7 @@ import { Card, Button, Drawer, Typography } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import EChartsReact from 'echarts-for-react';
 import AlarmsSummary from './AlarmsSummary';
+import { TicketsForm } from './TicketsForm';
 import { useSelector } from 'react-redux';
 
 const { Title } = Typography;
@@ -105,9 +106,11 @@ const AlarmDetailsPage = () => {
         }
       >
         <div style={{ padding: '20px 0' }}>
-          <Title level={4}>Ticket Creation Form</Title>
-          <p>Form implementation will be added here...</p>
-          {/* TODO: Add maintenance ticket form */}
+          <TicketsForm
+            siteId={name || ''}
+            siteName={`Site ${location || ''}`}
+            onSuccess={closeDrawer}
+          />
         </div>
       </Drawer>
     </div>
