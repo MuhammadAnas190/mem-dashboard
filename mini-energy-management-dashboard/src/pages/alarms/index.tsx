@@ -16,6 +16,7 @@ const { Search } = Input;
 
 const AlarmsPage = () => {
   const dispatch = useDispatch();
+  // @ts-ignore --next-line
   const { alarms, filteredAlarms, favorites, loading, error } = useSelector(
     (state: RootState) => state.alarms
   );

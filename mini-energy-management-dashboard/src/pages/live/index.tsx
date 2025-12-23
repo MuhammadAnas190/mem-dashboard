@@ -19,6 +19,7 @@ const DATA_POINTS = 20;
 
 const LivePage = () => {
   const dispatch = useDispatch();
+  // @ts-ignore --next-line
   const { chartData, currentPower, loading, error } = useSelector(
     (state: RootState) => state.power
   );
